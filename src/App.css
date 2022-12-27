@@ -84,7 +84,13 @@ img.image-grid {
 }
 
 .ri-heart-fill {
-  opacity: .7;
+  opacity: 1;
+}
+.ri-add-circle-line:before {
+  content: "\ea0f";
+  opacity: 5;
+  color: rgb(50, 212, 25)
+  
 }
 
 .ri-delete-bin-line,
