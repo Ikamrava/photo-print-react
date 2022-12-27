@@ -7,6 +7,8 @@ import CartItem from '../components/CartItem'
 function Cart() {
   const[ordering,setordering] = useState("Place Order")
   const {cart,emptyCart} = useContext(Context)
+  const totalCost = 5.99 * cart.length
+    const totalCostDisplay = totalCost.toLocaleString("en-US", {style: "currency", currency: "GBP"})
   localStorage.setItem("cartItems", JSON.stringify(cart));
 
   const cartItemElements = cart.map(item => (
@@ -27,7 +29,7 @@ function placeOrder(){
     <main className="cart-page">
         <h1>Check out</h1>
         {cartItemElements}
-        <p className="total-cost">Total: {"£"+cart.length * 5.99}</p>
+        <p className="total-cost">Total: {totalCostDisplay}</p>
             <div className="order-button">
                 {cart.length>0 ? <button onClick={()=>{placeOrder()}}>{ordering}</button>:
                 <p>You have no items in your cart.</p>

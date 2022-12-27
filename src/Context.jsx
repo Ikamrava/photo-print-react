@@ -4,11 +4,13 @@ import { useState } from "react"
 const Context = React.createContext()
 
 function ContextProvider({children}) {
-    const [allPhotos, setAllPhotos] = useState([])
+    
     let cartItems = localStorage.getItem("cartItems");
     let localstorageCart = JSON.parse(cartItems);
 
+
     const [cart,setCart] = useState(localstorageCart)
+    const [allPhotos, setAllPhotos] = useState([])
    
    
     useEffect(() => {
@@ -31,6 +33,7 @@ function ContextProvider({children}) {
             return item
         })
         setAllPhotos(updatedArr)
+        
     }
 
 
